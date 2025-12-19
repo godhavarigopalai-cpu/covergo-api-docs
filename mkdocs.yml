@@ -28,16 +28,10 @@ theme:
 
 plugins:
   - search
-  - mermaid2:
-      arguments:
-        theme: default
-        themeVariables:
-          primaryColor: '#3f51b5'
-          primaryTextColor: '#fff'
-          primaryBorderColor: '#1a237e'
-          lineColor: '#F8B229'
-          secondaryColor: '#006100'
-          tertiaryColor: '#fff'
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js
+  - javascript/mermaid-init.js
 
 repo_url: https://github.com/godhavarigopalai-cpu/covergo-api-docs
 repo_name: covergo-api-docs
@@ -57,7 +51,11 @@ markdown_extensions:
       anchor_linenums: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - tables
   - attr_list
   - md_in_html
