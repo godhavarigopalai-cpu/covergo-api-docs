@@ -1,5 +1,8 @@
 # refreshToken API (GraphQL)
 
+!!! info "Token Refresh Endpoint"
+    This API handles token renewal for maintaining authenticated sessions in CoverGo GraphQL services.
+
 ## Description
 Exchange a valid refresh token for a new access and refresh token.
 

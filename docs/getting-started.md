@@ -1,12 +1,60 @@
 # Getting Started with CoverGo API
 
-This guide will help you get started with the CoverGo GraphQL API.
+!!! tip "Quick Start Guide"
+    This comprehensive guide will get you up and running with the CoverGo GraphQL API in minutes.
 
 ## Prerequisites
 
-- GraphQL client (Postman, Insomnia, or similar)
-- API credentials (if required)
-- Understanding of GraphQL queries and mutations
+Before you begin, ensure you have:
+
+| Requirement | Description | Example |
+|-------------|-------------|---------|
+| **GraphQL Client** | Tool for making API requests | Postman, Insomnia, GraphQL Playground |
+| **API Credentials** | Authentication details | Username, password, tenant ID |
+| **GraphQL Knowledge** | Basic understanding of GraphQL | Queries, mutations, variables |
+
+## Authentication Flow
+
+### Step 1: Obtain Initial Token
+
+Use the `token_2` query to get your first access token:
+
+```graphql
+query GetToken($tenantId: String!, $clientId: String!, $username: String!, $password: String!) {
+  token_2(
+    tenantId: $tenantId,
+    clientId: $clientId,
+    username: $username,
+    password: $password
+  ) {
+    accessToken
+    refreshToken
+    expiresIn
+    tokenType
+    error
+    errorDescription
+  }
+}
+```
+
+### Step 2: Handle Token Refresh
+
+When tokens expire, use the `refreshToken` query:
+
+```graphql
+query RefreshToken($tenantId: String!, $clientId: String!, $refreshToken: String!) {
+  refreshToken(
+    tenantId: $tenantId,
+    clientId: $clientId,
+    refreshToken: $refreshToken
+  ) {
+    accessToken
+    refreshToken
+    expiresIn
+    tokenType
+  }
+}
+```
 
 ## GraphQL Endpoint
 

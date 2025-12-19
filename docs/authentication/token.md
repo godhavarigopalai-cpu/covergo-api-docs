@@ -1,5 +1,8 @@
 # token_2 API (GraphQL)
 
+!!! info "Authentication Endpoint"
+    This API provides direct token refresh functionality for CoverGo GraphQL services.
+
 ## Description
 Refresh the user's authentication and obtain a new token.
 
