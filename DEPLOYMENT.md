@@ -44,8 +44,13 @@ The repository includes a GitHub Actions workflow (`.github/workflows/deploy.yml
 
 - Triggers on pushes to the `main` branch
 - Builds the MkDocs site using Python 3.11
+- Uses `docs_dir: .` configuration to find docs in root directory
 - Deploys to GitHub Pages
 - Can also be triggered manually via the Actions tab
+
+### Configuration Notes
+
+The MkDocs configuration uses `docs_dir: .` which means documentation files are stored in the repository root directory rather than a `docs/` subdirectory. This setup works well for GitHub Actions deployment.
 
 ## Repository Structure
 
