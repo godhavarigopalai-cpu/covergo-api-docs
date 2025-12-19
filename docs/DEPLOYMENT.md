@@ -44,13 +44,13 @@ The repository includes a GitHub Actions workflow (`.github/workflows/deploy.yml
 
 - Triggers on pushes to the `main` branch
 - Builds the MkDocs site using Python 3.11
-- Uses `docs_dir: .` configuration to find docs in root directory
+- Uses standard MkDocs configuration with docs/ directory
 - Deploys to GitHub Pages
 - Can also be triggered manually via the Actions tab
 
 ### Configuration Notes
 
-The MkDocs configuration uses `docs_dir: .` which means documentation files are stored in the repository root directory rather than a `docs/` subdirectory. This setup works well for GitHub Actions deployment.
+The MkDocs configuration uses the default `docs/` directory structure, which is the recommended approach for MkDocs projects. Documentation files are properly organized in the `docs/` subdirectory, avoiding conflicts with the build output.
 
 ## Repository Structure
 
@@ -58,17 +58,19 @@ The MkDocs configuration uses `docs_dir: .` which means documentation files are 
 covergo-api-docs/
 ├── .github/workflows/deploy.yml    # GitHub Actions workflow
 ├── mkdocs.yml                      # MkDocs configuration
-├── docs/                           # Documentation files
-│   ├── index.md
-│   ├── getting-started.md
-│   ├── authentication/
-│   │   ├── token.md               # token_2 API documentation
-│   │   └── refreshtoken.md        # refreshToken API documentation
-│   └── api-reference/
-│       ├── schema.md
-│       └── mutations.md
 ├── requirements.txt                # Python dependencies
-└── README.md                       # Project documentation
+├── token_introspection.json        # GraphQL schema data
+└── docs/                           # Documentation source files
+    ├── DEPLOYMENT.md               # Setup instructions
+    ├── README.md                   # Project documentation
+    ├── index.md                    # Home page
+    ├── getting-started.md          # Getting started guide
+    ├── authentication/
+    │   ├── token.md               # token_2 API docs
+    │   └── refreshtoken.md        # refreshToken API docs
+    └── api-reference/
+        ├── schema.md               # GraphQL schema reference
+        └── mutations.md            # Available mutations list
 ```
 
 ## API Documentation Features
