@@ -18,6 +18,9 @@ plugins:
   - search
   - mkdocstrings
 
+extra_javascript:
+  - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
+
 nav:
   - Home: index.md
   - Authentication:
@@ -30,10 +33,13 @@ nav:
 
 markdown_extensions:
   - pymdownx.highlight
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
   - pymdownx.details
   - pymdownx.tabbed
   - admonition
