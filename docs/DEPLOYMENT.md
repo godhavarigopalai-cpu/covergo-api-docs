@@ -38,19 +38,44 @@ mkdocs build
 mkdocs gh-deploy
 ```
 
+## Checking Deployment Status
+
+### 1. Enable GitHub Pages (if not done)
+1. Go to your repository: https://github.com/godhavarigopalai-cpu/covergo-api-docs
+2. Click **Settings** tab → **Pages**
+3. Under **Source**, select **GitHub Actions**
+4. Click **Save**
+
+### 2. Check GitHub Actions Status
+1. Go to the **Actions** tab in your repository
+2. Look for the latest workflow run (should be "Deploy MkDocs to GitHub Pages")
+3. Click on the workflow to see the build status
+4. If it failed, check the error logs
+
+### 3. Manual Deployment Trigger
+If needed, you can manually trigger a deployment:
+1. Go to **Actions** tab
+2. Click **Deploy MkDocs to GitHub Pages**
+3. Click **Run workflow** → **Run workflow**
+
 ## GitHub Actions Workflow
 
 The repository includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) that:
 
 - Triggers on pushes to the `main` branch
 - Builds the MkDocs site using Python 3.11
-- Uses standard MkDocs configuration with docs/ directory
-- Deploys to GitHub Pages
+- Uses enhanced Material theme with dark/light mode
+- Includes Mermaid diagrams with custom styling
+- Deploys to GitHub Pages automatically
 - Can also be triggered manually via the Actions tab
 
 ### Configuration Notes
 
-The MkDocs configuration uses the default `docs/` directory structure, which is the recommended approach for MkDocs projects. Documentation files are properly organized in the `docs/` subdirectory, avoiding conflicts with the build output.
+The MkDocs configuration uses the default `docs/` directory structure with enhanced theming:
+- **Material Theme** with indigo color scheme
+- **Dark/Light mode toggle** for better user experience
+- **Mermaid2 plugin** for professional diagram rendering
+- **GitHub integration** with repository links
 
 ## Repository Structure
 
