@@ -1,0 +1,41 @@
+site_name: CoverGo API Documentation
+site_description: Documentation for CoverGo GraphQL APIs
+site_author: API Documentation Team
+
+theme:
+  name: material
+  palette:
+    primary: blue
+    accent: blue
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+
+plugins:
+  - search
+  - mkdocstrings
+
+nav:
+  - Home: index.md
+  - Authentication:
+    - Token API: authentication/token.md
+    - Refresh Token API: authentication/refreshtoken.md
+  - API Reference:
+    - GraphQL Schema: api-reference/schema.md
+    - Available Mutations: api-reference/mutations.md
+  - Getting Started: getting-started.md
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tabbed
+  - admonition
+  - toc:
+      permalink: true
