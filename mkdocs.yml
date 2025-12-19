@@ -2,6 +2,8 @@ site_name: CoverGo API Documentation
 site_description: Documentation for CoverGo GraphQL APIs
 site_author: API Documentation Team
 
+docs_dir: .
+
 theme:
   name: material
   palette:
